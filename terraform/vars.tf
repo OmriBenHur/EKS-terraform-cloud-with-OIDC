@@ -44,7 +44,9 @@ variable "cluster-name" {
 variable "eks-private-node-capacity-type" {
   default = "ON_DEMAND"
 }
+
+# t.2 micro is insufficient use t.2 small and above.
 variable "eks-private-node-instance-type" {
-  default = "t2.micro"
+  default = "t2.small"
 }
 

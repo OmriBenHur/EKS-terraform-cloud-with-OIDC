@@ -71,7 +71,7 @@ resource "aws_eks_cluster" "eks-cluster" {
 resource "aws_eks_node_group" "private-node-group" {
   cluster_name   = aws_eks_cluster.eks-cluster.name
   node_role_arn  = aws_iam_role.eks-node-role.arn
-  subnet_ids     = [for o in aws_subnet.public : o.id]
+  subnet_ids     = [for o in aws_subnet.private : o.id]
   capacity_type  = var.eks-private-node-capacity-type
   instance_types = [var.eks-private-node-instance-type]
   node_group_name = "${var.cluster-name}-private-node-group"
